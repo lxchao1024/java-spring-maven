@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper>
+    <resultMap id="userMap" type="com.example.demo.pojo.User">
+        <id property="id" column="id" javaType="java.lang.Long"/>
+        <result property="username" column="username" javaType="java.lang.String"/>
+        <result property="createdTime" column="created_time" javaType="java.lang.String"/>
+    </resultMap>
+
+    <select id="selectedTB1" resultMap="userMap">
+        select * from customer
+    </select>
+</mapper>
