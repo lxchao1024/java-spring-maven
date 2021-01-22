@@ -26,6 +26,9 @@ public class LoginController {
         // 对 html 标签进行转义，防止 XSS 攻击
         String username = requestUser.getUsername();
         username = HtmlUtils.htmlEscape(username);
+        if (null == username || username.length() == 0) {
+            return new Result(400, "用户名为空");
+        }
         User user = userService.get(username, requestUser.getPassword());
 
         if (null == user) {
